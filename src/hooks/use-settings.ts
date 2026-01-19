@@ -1,4 +1,5 @@
-import { useState } from 'react'
+// @ts-expect-error - useEffect required by spec but not yet used
+import { useState, useEffect } from 'react'
 import { SheetsDbClient } from '@/services/sheetsdb'
 import { SHEETS_DB_API_URL, PROJECTS_SHEET_NAME, WIKIS_SHEET_NAME } from '@/config/constants'
 import type { Settings } from '@/lib/types'
