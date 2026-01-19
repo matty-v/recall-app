@@ -8,8 +8,12 @@ const SETTINGS_KEY = 'recall-settings'
 
 export function useSettings() {
   const [settings, setSettings] = useState<Settings | null>(() => {
-    const stored = localStorage.getItem(SETTINGS_KEY)
-    return stored ? JSON.parse(stored) : null
+    try {
+      const stored = localStorage.getItem(SETTINGS_KEY)
+      return stored ? JSON.parse(stored) : null
+    } catch {
+      return null
+    }
   })
   const [isInitializing, setIsInitializing] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -58,6 +62,7 @@ export function useSettings() {
   const disconnect = () => {
     localStorage.removeItem(SETTINGS_KEY)
     setSettings(null)
+    setError(null)
   }
 
   return {

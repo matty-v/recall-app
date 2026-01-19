@@ -34,6 +34,6 @@ export interface FilterState {
 }
 
 export interface Settings {
-  spreadsheetId: string
-  lastValidated: string
+  spreadsheetId: string;
+  lastValidated: string;
 }
