@@ -24,11 +24,6 @@ export interface Wiki {
   lastUpdated: string;
 }
 
-export interface Settings {
-  spreadsheetId: string;
-  lastValidated: string;
-}
-
 export type ItemType = 'project' | 'wiki';
 
 export interface FilterState {
