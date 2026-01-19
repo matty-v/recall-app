@@ -32,3 +32,8 @@ export interface FilterState {
   type: string;
   status: string;
 }
+
+export interface Settings {
+  spreadsheetId: string
+  lastValidated: string
+}
