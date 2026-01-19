@@ -1,0 +1,41 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Glow filter for cyan -->
+    <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="10" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Glow filter for purple -->
+    <filter id="glowPurple" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="7.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="512" height="512" fill="#0a0e14"/>
+
+  <!-- Base text element (hidden, used for reference) -->
+  <text id="baseR" x="256" y="356"
+        font-family="JetBrains Mono, monospace"
+        font-weight="700"
+        font-size="280"
+        text-anchor="middle"
+        fill="none">R</text>
+
+  <!-- Pink layer (bottom, shifted left and down) -->
+  <use href="#baseR" x="-3" y="3" fill="#ec4899" opacity="0.5"/>
+
+  <!-- Purple layer (middle, shifted right and up, with glow) -->
+  <use href="#baseR" x="3" y="-3" fill="#a78bfa" opacity="0.7" filter="url(#glowPurple)"/>
+
+  <!-- Cyan layer (top, no offset, with glow) -->
+  <use href="#baseR" fill="#00d4ff" opacity="1.0" filter="url(#glowCyan)"/>
+</svg>
