@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="public/logo.svg" alt="Recall Logo" width="128" height="128">
+</p>
+
 # Recall
 
 A PWA for managing projects and wikis stored in Google Sheets with Claude.ai integration.
