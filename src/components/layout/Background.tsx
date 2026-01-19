@@ -1,8 +1,10 @@
-import { useEffect } from 'react'
+import { useEffect, useRef } from 'react'
 
 function Particles() {
+  const containerRef = useRef<HTMLDivElement>(null)
+
   useEffect(() => {
-    const container = document.getElementById('particles')
+    const container = containerRef.current
     if (!container || container.children.length > 0) return
 
     const particleCount = 30
@@ -21,9 +23,15 @@ function Particles() {
       particle.style.height = size + 'px'
       container.appendChild(particle)
     }
+
+    return () => {
+      if (container) {
+        container.innerHTML = ''
+      }
+    }
   }, [])
 
-  return <div className="particles" id="particles" />
+  return <div className="particles" ref={containerRef} />
 }
 
 export function Background() {
