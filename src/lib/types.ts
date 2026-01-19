@@ -33,7 +33,7 @@ export type ItemType = 'project' | 'wiki';
 
 export interface FilterState {
   search: string;
-  tags: string;
-  type: ItemType | 'all';
+  tags: string[];
+  type: string;
   status: string;
 }
