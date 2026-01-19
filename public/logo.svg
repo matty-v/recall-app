@@ -1,4 +1,12 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+<svg width="512" height="512" viewBox="0 0 512 512"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     role="img"
+     aria-label="Recall logo"
+     preserveAspectRatio="xMidYMid meet">
+  <title>Recall</title>
+  <desc>Stylized letter R with cyberpunk glitch effect in cyan, purple, and pink</desc>
+
   <defs>
     <!-- Glow filter for cyan -->
     <filter id="glowCyan" x="-50%" y="-50%" width="200%" height="200%">
@@ -17,25 +25,20 @@
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
+
+    <!-- Base R path (replaces text element to eliminate font dependency) -->
+    <path id="baseR" d="M 172 356 L 172 160 L 332 160 Q 340 160 340 168 L 340 200.768 Q 340 251.92 325 261.92 L 340 356 L 298 356 L 298 308.12 L 214 308.12 L 214 356 Z M 214 202 L 214 240.92 L 283 240.92 Q 298 198.92 298 210.96 Q 298 223 286 202 L 214 202 Z"/>
   </defs>
 
   <!-- Dark background -->
   <rect width="512" height="512" fill="#0a0e14"/>
 
-  <!-- Base text element (hidden, used for reference) -->
-  <text id="baseR" x="256" y="356"
-        font-family="JetBrains Mono, monospace"
-        font-weight="700"
-        font-size="280"
-        text-anchor="middle"
-        fill="none">R</text>
-
   <!-- Pink layer (bottom, shifted left and down) -->
-  <use href="#baseR" x="-3" y="3" fill="#ec4899" opacity="0.5"/>
+  <use xlink:href="#baseR" href="#baseR" x="-3" y="3" fill="#ec4899" opacity="0.5"/>
 
   <!-- Purple layer (middle, shifted right and up, with glow) -->
-  <use href="#baseR" x="3" y="-3" fill="#a78bfa" opacity="0.7" filter="url(#glowPurple)"/>
+  <use xlink:href="#baseR" href="#baseR" x="3" y="-3" fill="#a78bfa" opacity="0.7" filter="url(#glowPurple)"/>
 
   <!-- Cyan layer (top, no offset, with glow) -->
-  <use href="#baseR" fill="#00d4ff" opacity="1.0" filter="url(#glowCyan)"/>
+  <use xlink:href="#baseR" href="#baseR" fill="#00d4ff" filter="url(#glowCyan)"/>
 </svg>
