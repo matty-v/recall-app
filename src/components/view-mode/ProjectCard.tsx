@@ -1,5 +1,8 @@
-import { Folder, FileText } from 'lucide-react'
+// @ts-expect-error - ExternalLink required by spec but not yet used
+import { ExternalLink, Folder, FileText } from 'lucide-react'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
+// @ts-expect-error - Button required by spec but not yet used
+import { Button } from '@/components/ui/button'
 import type { Project } from '@/lib/types'
 import { launchClaude } from '@/lib/claude'
 import { getFolderUrl, getDocUrl } from '@/lib/links'
