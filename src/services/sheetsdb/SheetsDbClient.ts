@@ -53,8 +53,11 @@ export class SheetsDbClient {
   }
 
   async health(): Promise<{ status: string }> {
-    const response = await fetch(`${this.baseUrl}/health`)
-    return response.json()
+    const result = await this.request<{ status: string }>('/health')
+    if (!result) {
+      throw new SheetsDbError('Health check returned no data', undefined)
+    }
+    return result
   }
 
   async listSheets(): Promise<SheetInfo[]> {
@@ -75,7 +78,10 @@ export class SheetsDbClient {
         body: JSON.stringify(data),
       }
     )
-    return result!
+    if (!result) {
+      throw new SheetsDbError('Expected response body but got none', undefined)
+    }
+    return result
   }
 
   async updateRow<T>(sheetName: string, rowIndex: number, data: T): Promise<void> {
